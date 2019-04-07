@@ -1,5 +1,5 @@
 make:
-	clang++ -std=c++17 main.cpp Bank.cpp Supermarket.cpp -o simulator
+	clang++ -std=c++17 main.cpp Bank.cpp Supermarket.cpp Store.cpp -o simulator
 
 test:
 	chmod +x test.sh
