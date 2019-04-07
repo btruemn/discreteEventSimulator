@@ -13,6 +13,7 @@
 #include <stdlib.h>
 #include <array>
 #include "Event.h"
+#include "Store.h"
 
 #define SIM_LENGTH 43200 //12 hours = 43,200 seconds
 #define NUM_TELLERS 6
@@ -20,15 +21,10 @@ using namespace std;
 
 class Supermarket {
 private:
-    priority_queue<Event, vector<Event>, compareEventTime> eventQueue;
     array<int, 6> cashiers;
-    double currentTime = 0;
-
+    
 public:
-    vector<double> serviceTimes;
-    void addEvent(Event event);
-    void runSim();
-    void calcAvgServiceTime();
+    void runSim(Store *store);
     void printEventInfo(const Event &event);
 };
 

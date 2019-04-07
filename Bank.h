@@ -12,26 +12,21 @@
 #include <unordered_map>
 #include <stdlib.h>
 #include "Event.h"
-
+#include "Store.h"
 #define SIM_LENGTH 43200 //12 hours = 43,200 seconds
 #define NUM_TELLERS 6
 using namespace std;
 
 class Bank {
 private:
-    priority_queue<Event, vector<Event>, compareEventTime> eventQueue;
     std::queue<Event> bankQueue;
-    double currentTime = 0;
     int tellersAvailable = NUM_TELLERS;
-
+    Store store;
 public:
-    vector<double> serviceTimes;
-    void addEvent(Event &event);
     void addBankCustomer(Event event);
-    void runSim();
-    void calcAvgServiceTime();
-    void printEventInfo(const Event &event);
+    void runSim(Store *store);
 };
 
 
 #endif //DISCRETEEVENTSIMULATOR_BANK_H
+
